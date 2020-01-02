@@ -1,0 +1,41 @@
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` int(32) NOT NULL,
+  `name` varchar(60) DEFAULT NULL,
+  `mob` varchar(60) DEFAULT NULL,
+  `email` varchar(150) DEFAULT NULL,
+  `valid` int(2) DEFAULT NULL,
+  `pticket` varchar(200) DEFAULT NULL,
+  `role_id` int(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS `user_role`;
+CREATE TABLE `user_role` (
+  `uid` int(32) NOT NULL,
+  `role_id` int(32) NOT NULL,
+  PRIMARY KEY (`uid`,`role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE `role` (
+  `id` int(32) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS `role_permission`;
+CREATE TABLE `role_permission` (
+  `permission_id` int(32) NOT NULL,
+  `role_id` int(32) NOT NULL,
+  PRIMARY KEY (`permission_id`,`role_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS `permission`;
+CREATE TABLE `permission` (
+  `id` int(32) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

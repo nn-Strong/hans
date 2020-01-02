@@ -1,0 +1,42 @@
+server:
+  port: 8888
+spring:
+  freemarker:
+    template-loader-path: classpath:/templates/
+    charset: utf-8
+    cache: false
+    expose-request-attributes: true
+    expose-session-attributes: true
+    expose-spring-macro-helpers: true
+    suffix: .ftl
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/hans?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 123456
+    initial-size: 10
+    max-active: 100
+    min-idle: 10
+    max-wait: 60000
+    pool-prepared-statements: true
+    max-pool-prepared-statement-per-connection-size: 20
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    test-while-idle: true
+    test-on-borrow: false
+    test-on-return: false
+    druid:
+      filters: stat,wall
+      exception-sorter: true
+  init-db: trues
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate.:
+      ddl-auto: none
+logging:
+  config: classpath:Logback.xml
+  file:
+    path: D://
+  level:
+   root: error
